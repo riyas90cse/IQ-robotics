@@ -1,0 +1,47 @@
+<div class="row justify-content-center p-tb">
+  <div class="col-12">
+    <h5 class="text-center">Add User Detail</h5>
+  </div>
+  <div class="col-8">
+    <form [formGroup]="form" class="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input [formControlName]="name" type="text" class="form-control" id="name" placeholder="Name">
+        <span class="help-block text-danger"
+              *ngIf="form.get('name').touched && form.get('name').hasError('required')">Name is required</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input [formControlName]="email" type="email" class="form-control" id="email" placeholder="Enter email">
+        <span class="help-block text-danger"
+              *ngIf="form.get('email').touched && form.get('email').hasError('required')">Email is required</span>
+      </div>
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input [formControlName]="username" type="text" class="form-control" id="username" placeholder="User Name">
+        <span class="help-block text-danger"
+              *ngIf="form.get('username').touched && form.get('email').hasError('required')">Username is required</span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input [formControlName]="password" type="password" class="form-control" id="password" placeholder="Password">
+        <span class="help-block text-danger"
+              *ngIf="form.get('password').touched && form.get('password').hasError('required')">password is required</span>
+      </div>
+<!--      <div class="row">-->
+<!--        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--          <div class="form-group">-->
+<!--            <label for="roleLevel">Role Level</label>-->
+<!--            <select class="form-control" id="roleLevel">-->
+<!--              <option>Admin</option>-->
+<!--              <option>Manager</option>-->
+<!--              <option>UserEntity</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <button type="button" class="btn btn-outline-dark float-right" (click)="saveUser()">Save</button>
+      <button type="button" class="btn btn-outline-dark float-right mr-2" (click)="resetUser()">Clear</button>
+    </form>
+  </div>
+</div>

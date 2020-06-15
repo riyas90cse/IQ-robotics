@@ -1,0 +1,23 @@
+<div class="wrap">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="login-form">
+    <div class="form-header">
+      <h3>Login Form</h3>
+      <p>Login to access your dashboard</p>
+    </div>
+    <!--Email Input-->
+    <div class="form-group">
+      <input [formControl]="username" type="text" class="form-input" placeholder="Email">
+      <span class="help-block text-danger" *ngIf="form.get('username').touched && form.get('username').hasError('required')">Username is required</span>
+    </div>
+    <!--Password Input-->
+    <div class="form-group">
+      <input [formControl]="password" type="password" class="form-input" placeholder="password">
+      <span class="help-block text-danger" *ngIf="form.get('password').touched && form.get('password').hasError('required')">Password is required</span>
+    </div>
+    <!--Login Button-->
+    <div class="form-group">
+      <button class="form-button" type="submit" [disabled]="!form.valid">Login</button>
+      <a [routerLink]="['/auth/register']" class="forgot-pass">Sign Up</a>
+    </div>
+  </form>
+</div>

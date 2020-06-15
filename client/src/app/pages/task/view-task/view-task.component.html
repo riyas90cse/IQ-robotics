@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="content-section">
+    <div class="row">
+      <div class="col-6">
+        <h5>{{ title }}</h5>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-outline-dark float-right" (click)="onRoute(false)">
+          <i class="fa fa-plus-square"></i> Add Task
+        </button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border table-striped">
+          <thead class="custom-table-head">
+          <tr>
+            <th style="min-width: 70px;">SL NO</th>
+            <th style="min-width: 100px;">TASK NAME</th>
+            <th style="min-width: 100px;">DEESCRIPTION</th>
+            <th style="min-width: 100px;">STATUS</th>
+            <th style="min-width: 100px;">COMMENTS</th>
+            <th style="min-width: 100px;">ACTIONS</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.id }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.comments }}</td>
+            <td>
+              <i class="fa fa-edit" style="cursor: pointer" (click)="onRoute(true)"></i> |
+              <i class="fa fa-trash" style="cursor: pointer"></i>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

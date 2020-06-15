@@ -1,0 +1,56 @@
+<div class="row justify-content-center p-tb">
+  <div class="col-12">
+    <h5 class="text-center">Add Task Detail</h5>
+  </div>
+  <div class="col-8">
+    <div class="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="email" class="form-control" id="description" aria-describedby="emailHelp" placeholder="Enter Detailed Descriptions"></textarea>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" id="status">
+              <option>Open</option>
+              <option>Closed</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <div class="form-group">
+            <label [for]="assignUserLabel">Assign To</label>
+            <ng-select
+              [items]="people"
+              [multiple]="false"
+              bindLabel="name"
+              [labelForId] ="assignUserLabel"
+              [selectableGroup]="true"
+              [closeOnSelect]="false"
+              bindValue="id"
+              [(ngModel)]="selectedPeople">
+              <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="comments">Comments</label>
+            <input type="text" class="form-control" id="comments" placeholder="Comments">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-dark float-right">Save</button>
+      <button type="button" class="btn btn-outline-dark float-right mr-2">Clear</button>
+    </div>
+  </div>
+</div>

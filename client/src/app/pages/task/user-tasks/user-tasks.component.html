@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="content-section">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header custom-card-header">
+            <h5 class="card-title text-center">User Task Details</h5>
+          </div>
+          <div class="card-body">
+            <h5 class="card-subtitle mb-2 text-muted">Name: {{ userInfo.userName }}</h5>
+            <a class="card-text"> Total Tasks: {{ userInfo.totalTasks }}</a> &nbsp; &nbsp;
+            <a class="card-text"> Opened Tasks: {{ userInfo.opened }} </a> &nbsp; &nbsp;
+<!--            <a class="card-text"> InProgress Tasks: {{ userInfo.inProgress }} </a> &nbsp; &nbsp;-->
+            <a class="card-text"> Closed Tasks: {{ userInfo.closed }} </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 mt-5">
+      <div class="col mb-4" *ngFor="let task of tasks">
+        <div class="card h-100">
+          <h6  class="card-header custom-card-header" [ngStyle]="{ 'backgroundColor': task.status == 'Closed' ? 'red' : 'green'}">{{ task.status}}</h6>
+          <div class="card-body">
+            <h6 class="card-text">Title: {{ task.name }}e</h6>
+            <p class="card-text">
+              Description: {{ task.description }}
+            </p>
+            <a class="card-text">Comments: {{ task.comments }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
